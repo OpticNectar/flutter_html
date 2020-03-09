@@ -907,10 +907,10 @@ class HtmlRichTextParser extends StatelessWidget {
             BlockText blockText = BlockText(
               shrinkToFit: shrinkToFit,
               margin: EdgeInsets.only(
-                  left: parseContext.indentLevel * indentSize, top: 3.0),
+                  left: parseContext.indentLevel * indentSize, top: 3.0, bottom: 10.0),
               child: RichText(
                 text: TextSpan(
-                  text: '$leadingChar  ',
+                  // text: '$leadingChar  ',
                   style: DefaultTextStyle.of(buildContext).style,
                   children: <TextSpan>[
                     TextSpan(text: '', style: nextContext.childStyle)
@@ -918,7 +918,20 @@ class HtmlRichTextParser extends StatelessWidget {
                 ),
               ),
             );
-            parseContext.rootWidgetList.add(blockText);
+            Row row = Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 3.0),
+                  child: Text('$leadingChar  '),
+                ),
+                Expanded(
+                  child: blockText,
+                )
+              ],
+            );
+            parseContext.rootWidgetList.add(row);
             nextContext.parentElement = blockText.child.text;
             nextContext.spansOnly = true;
             nextContext.inBlock = true;
