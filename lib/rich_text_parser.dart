@@ -907,7 +907,7 @@ class HtmlRichTextParser extends StatelessWidget {
             BlockText blockText = BlockText(
               shrinkToFit: shrinkToFit,
               margin: EdgeInsets.only(
-                  left: (parseContext.indentLevel * 0.5) * indentSize, top: 3.0, bottom: 10.0),
+                  left: 3.0, top: 3.0, bottom: 10.0),
               child: RichText(
                 text: TextSpan(
                   // text: '$leadingChar  ',
@@ -923,7 +923,7 @@ class HtmlRichTextParser extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 3.0),
+                  padding: EdgeInsets.only(top: 3.0, left: 5.0),
                   child: Text('$leadingChar  '),
                 ),
                 Expanded(
