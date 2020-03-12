@@ -907,7 +907,7 @@ class HtmlRichTextParser extends StatelessWidget {
             BlockText blockText = BlockText(
               shrinkToFit: shrinkToFit,
               margin: EdgeInsets.only(
-                  left: parseContext.indentLevel * indentSize, top: 3.0, bottom: 10.0),
+                  left: (parseContext.indentLevel * 0.5) * indentSize, top: 3.0, bottom: 10.0),
               child: RichText(
                 text: TextSpan(
                   // text: '$leadingChar  ',
